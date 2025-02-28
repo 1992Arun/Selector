@@ -47,7 +47,7 @@ public class Shadow {
 
 	public static void main(String[] args) {
 
-		popuos();
+	
 
 	}
 
