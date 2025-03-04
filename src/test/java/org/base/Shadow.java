@@ -1,6 +1,8 @@
 package org.base;
 
 import java.time.Duration;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -44,10 +46,34 @@ public class Shadow {
 
 	}
 
+	public static void path() {
+
+		String path = System.getProperty("user.dir")+"\\src\\test\\resources\\Downloads";
+
+		Map<String,Object> mp = new HashMap();
+
+		mp.put("download.default_directory", path);
+
+		ChromeOptions op = new ChromeOptions();
+
+		op.setExperimentalOption("prefs", mp);
+
+		WebDriver driver = new ChromeDriver(op);
+
+		driver.get("https://samplelib.com/sample-jpeg.html");
+
+		driver.manage().window().maximize();
+
+		driver.findElement(By.xpath("(//a[text()='Download'])[1]")).click();
+
+	}
+
 
 	public static void main(String[] args) {
 
-		popuos();
+      
+		
+
 
 	}
 
